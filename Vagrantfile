@@ -9,7 +9,9 @@ nodes_config = (JSON.parse(File.read("nodes.json")))['nodes']
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "bento/ubuntu-20.04"
+
+  config.vm.synced_folder ".", "/tmp/vagrant"
 
   nodes_config.each do |node|
     node_name   = node[0] # name of node
