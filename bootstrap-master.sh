@@ -29,10 +29,11 @@ else
 
     # Install some initial puppet modules on Puppet Master server
     sudo puppet module install puppetlabs-ntp
-    sudo puppet module install garethr-docker
+    sudo puppet module install puppetlabs-docker
     sudo puppet module install puppetlabs-git
     sudo puppet module install puppetlabs-vcsrepo
     sudo puppet module install garystafford-fig
+    sudo puppet module install puppetlabs-kubernetes
 
     # symlink manifest from Vagrant synced folder location
     sudo mkdir /etc/puppet/manifests

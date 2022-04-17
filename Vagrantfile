@@ -33,7 +33,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       config.vm.provider :virtualbox do |vb|
         vb.customize ["modifyvm", :id, "--memory", node_values[':memory']]
         vb.customize ["modifyvm", :id, "--name", node_name]
-      end
+ 
+	# use differencing disk images
+ 	# to save space and spin up faster
+	vb.linked_clone = true
+     end
 
       config.vm.provision :shell, :path => node_values[':bootstrap']
     end
